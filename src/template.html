@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <h2>List of projects</h2>
+        <div class="projects">
+            <ul id="listProjects">
+                <li></li>
+            </ul>
+        </div>
+        <dialog id="projectDialog">
+            <p>
+                <label>
+                    New project name :
+                    <input type="text" required id="projectName" maxlength="15" >
+                </label>
+            </p>
+            <div>
+                <button value="cancel" id="cancelBtn" formmethod="dialog">Cancel</button>
+                <button value="default" id="confirmBtn" >Confirm</button>
+            </div>
+        </dialog>
+        <button id="newProject">New project</button>
+    </div>
+    <div class="content">
+        <div class="top">
+            <button id="menu">Back</button>
+            <h1>Overview</h1>
+        </div>
+        <div class="main">
+
+        </div>
+    </div>
+</body>
+</html>
