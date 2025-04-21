@@ -1,11 +1,12 @@
 import "./styles.css"
-import { populateProjectList, checkLocalStorage, populateTodoList } from "./populateDOM";
+import { populateProjectList, checkLocalStorage } from "./populateDOM";
 import "./projectCreator";
+import "./todoCreator";
 
 
 checkLocalStorage();
 populateProjectList();
-populateTodoList();
+
 
 //localStorage.removeItem("projects");
 // module création todo 

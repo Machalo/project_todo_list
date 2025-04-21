@@ -1,9 +1,8 @@
 import { removeProject } from "./projectCreator";
 
-function Todo (name, dueDate, priority, note, task) {
+function Todo (name, dueDate, note, task) {
     this.name = name;
     this.dueDate = dueDate;
-    this.priority = priority;
     this.note = note;
     this.task = task;
 }
@@ -47,13 +46,15 @@ function populateProjectList () {
         const title = document.createElement("li");
         title.setAttribute("id", element.name);
         title.textContent = element.name;
+        title.addEventListener("click", () => {
+            populateTodoList(element.name);
+        })
 
         const deleteBtn = document.createElement("button");
         deleteBtn.setAttribute("id", element.name+"delete");
         deleteBtn.textContent="X"
         deleteBtn.addEventListener("click", () => {
             removeProject(title.id);
-            populateTodoList();
             title.remove();
         })
         title.appendChild(deleteBtn);
@@ -63,7 +64,7 @@ function populateProjectList () {
     console.log(projects);
 }
 
-function populateTodoList () {
+function populateTodoList (projectName) {
     let projects = JSON.parse(localStorage.getItem("projects"));
     const container = document.querySelectorAll(".main");
 
@@ -73,20 +74,30 @@ function populateTodoList () {
         }
     });
 
-    const listTodo = document.querySelector(".main");
+    const header = document.querySelector(".top h1");
+    header.textContent = projectName;
 
-    projects.forEach(proj => {
-        const todo = proj.todo;
-        todo.sort((a,b) => a.priority - b.priority);
-        todo.forEach(todo => {
-            const div = document.createElement("div");
-            const title = document.createElement("h3");
-            title.textContent = todo.name;
-            div.appendChild(title);
-            listTodo.appendChild(div);
-        });
-
+    const dialog = document.getElementById("todoDialog");   
+    const newTodoBtn = document.querySelector(".newTodo");
+    newTodoBtn.setAttribute("id", "newTodo"+projectName)
+    newTodoBtn.addEventListener("click", () => {
+        dialog.showModal();
     });
+
+    const listTodo = document.querySelector(".main");
+    const proj = projects.find(p => p.name === projectName);
+    
+    const todo = proj.todo;
+    todo.sort((a,b) => a.priority - b.priority);
+    todo.forEach(todo => {
+        const div = document.createElement("div");
+        const title = document.createElement("h3");
+        title.textContent = todo.name;
+        div.appendChild(title);
+        const date = document.createElement("h4");
+
+        listTodo.appendChild(div);
+    }); 
 }
 
 

@@ -13,6 +13,7 @@
                 <li></li>
             </ul>
         </div>
+
         <dialog id="projectDialog">
             <p>
                 <label>
@@ -35,17 +36,42 @@
                     <option value="3">Low</option>
                 </select>
             </p>
-
         </dialog>
+
         <button id="newProject">New project</button>
     </div>
+
     <div class="content">
         <div class="top">
             <button id="menu">Back</button>
-            <h1>Overview</h1>
-        </div>
-        <div class="main">
+            <h1></h1>
 
+            <dialog id="todoDialog">
+                <form id="todoForm" method="dialog">
+                    <label>
+                        Name:
+                        <input type="text" id="todoName" maxlength="15" required>
+                    </label>
+                    <label>
+                        Due Date:
+                        <input type="date" id="todoDueDate" required>
+                    </label>
+                    <label>
+                        Note (max 30 characters):
+                        <input type="text" id="todoNote" maxlength="30">
+                    </label>
+
+                    <menu>
+                        <button type="submit" id="confirmTodo">Confirm</button>
+                        <button type="button" id="cancelTodo">Cancel</button>
+                    </menu>
+                </form>
+            </dialog>
+
+            <button class="newTodo" id="newTodo">New Todo</button>
+        </div>
+
+        <div class="main">
         </div>
     </div>
 </body>

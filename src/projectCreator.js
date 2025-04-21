@@ -21,6 +21,8 @@ cconfirmProjectButton.addEventListener("click", () => {
   }
   else {
     dialogProject.close(createNewProject(projectInput.value, projectPriority.value));
+    projectInput.value = "";
+    projectPriority.value = "1";
   }
 });
 
