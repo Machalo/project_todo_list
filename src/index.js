@@ -3,6 +3,7 @@ import { populateProjectList, checkLocalStorage } from "./DOMproject";
 import "./projectCreator";
 import "./todoCreator";
 import "./DOMtodo";
+import "./taskCreator"
 
 
 checkLocalStorage();

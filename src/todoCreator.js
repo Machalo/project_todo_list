@@ -49,4 +49,13 @@ function removeTodo (name) {
     localStorage.setItem("projects", JSON.stringify(projects));
 }
 
+function addTask (name) {
+    let projects = JSON.parse(localStorage.getItem("projects"));
+    const projectName = document.querySelector(".top h1").textContent;
+    const proj = projects.find(p => p.name === projectName);
+    
+    proj.todo
+
+}
+
 export {removeTodo};

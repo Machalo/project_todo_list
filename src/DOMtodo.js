@@ -15,7 +15,7 @@ function populateTodoList (projectName) {
     const header = document.querySelector(".top h1");
     header.textContent = projectName;
 
-    const dialog = document.getElementById("todoDialog");   
+    const dialog = document.getElementById("todoDialog");
     const newTodoBtn = document.querySelector(".newTodo");
     newTodoBtn.setAttribute("id", "newTodo"+projectName)
     newTodoBtn.addEventListener("click", () => {
@@ -55,9 +55,38 @@ function populateTodoList (projectName) {
             dueText = `Due in: ${timeLeft}`;
         }
 
+        const listTask = document.createElement("ul");
+        todo.task.forEach (task => {
+            const taskDiv = document.createElement("li");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = task+"check";
+            const labelCB = document.createElement("label");
+            labelCB.htmlFor = checkbox.id;
+            labelCB.textContent = task;
+
+            labelCB.appendChild(checkbox);
+            taskDiv.appendChild(labelCB);
+            listTask.appendChild(taskDiv);
+        })
+
+        div.appendChild(listTask);
+
         const date = document.createElement("h4");
         date.textContent = dueText;
         div.appendChild(date);
+
+        const dialogTask = document.getElementById("taskDialog");
+        const addTaskBtn = document.createElement("button");
+        const titleDialogTask = document.querySelector("#taskForm h3")
+        addTaskBtn.setAttribute("id", todo.name+"addTask");
+        addTaskBtn.textContent= "+"
+        addTaskBtn.addEventListener("click", () =>{
+            titleDialogTask.setAttribute("id", todo.name);
+            titleDialogTask.textContent = "Add task for " + todo.name + ":";
+            dialogTask.showModal();
+        })
+        div.appendChild(addTaskBtn);
 
 
         listTodo.appendChild(div);
