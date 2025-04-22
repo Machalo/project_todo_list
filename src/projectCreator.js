@@ -1,4 +1,4 @@
-import { populateProjectList, Project } from "./populateDOM";
+import { populateProjectList, Project } from "./DOMproject";
 
 const newProjectButton = document.getElementById("newProject");
 const cancelProjectButton = document.getElementById("cancelBtn");

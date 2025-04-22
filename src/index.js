@@ -1,7 +1,8 @@
 import "./styles.css"
-import { populateProjectList, checkLocalStorage } from "./populateDOM";
+import { populateProjectList, checkLocalStorage } from "./DOMproject";
 import "./projectCreator";
 import "./todoCreator";
+import "./DOMtodo";
 
 
 checkLocalStorage();
